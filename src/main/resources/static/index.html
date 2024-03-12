@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oblig</title>
+  <script src="scripts.js"></script>
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+<label>Velg film: </label>
+<select id="film">
+  <option value="" disabled selected>Velg film her</option>
+  <option name="filmer" value="G.I. Joe">G.I. Joe</option>
+  <option name="filmer" value="G.I. Joe 2">G.I. Joe 2</option>
+  <option name="filmer" value="G.I. Joe 3">G.I. Joe 3</option>
+</select>
+<span id="errorFilm"></span>
+<br/>
+<br/>
+<label>Antall</label>
+<input id="antallBilleter" type="text" size="1"><span id="errorAntall"></span>
+<br/>
+<br/>
+<table>
+  <tr><td>Fornavn</td><td><input id="fornavn" type="text"></td><td><span id="errorFornavn"></span></td></tr>
+  <tr><td>Etternavn</td><td><input id="etternavn" type="text"></td><td><span id="errorEtternavn"></span></td></tr>
+  <tr><td>Telefonnr</td><td><input id="telefonnr" type="text"></td><td><span id="errorTelefonnr"></span></td></tr>
+  <tr><td>Epost</td><td><input id="epost" type="text"></td><td><span id="errorEpost"></span></td></tr>
+</table>
+<button onclick="kjopBillett()">Kjøp billet</button>
+<br/>
+<br/>
+<h2>Alle billetter</h2>
+<div id="output"></div>
+<button onclick="slettKinobillettListe()">Slett alle billetter</button>
+</body>
+</html>
