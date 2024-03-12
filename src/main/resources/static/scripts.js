@@ -14,36 +14,47 @@ function kjopBillett(){
     if(film === ""){
         visError("errorFilm", "Ikke valgt film")
         error = true;
+    }else {
+        $("#errorFilm").html("");
     }
 
     const antallTest = Number(antall)
     if(isNaN(antallTest) || antallTest < 1 ) {
         visError("errorAntall", "Ikke tastet inn riktig")
         error = true;
-    }else{
+    }else {
         antall = Number(antall)
+        $("#errorAntall").html("");
     }
 
     if( fornavn === "" ) {
         visError("errorFornavn", "Ikke tastet inn fornavn")
         error = true;
+    }else {
+        $("#errorFornavn").html("");
     }
 
     if( etternavn === "" ) {
         visError("errorEtternavn", "Ikke tastet inn etternavn")
         error = true;
+    }else {
+        $("#errorEtternavn").html("");
     }
 
     const resultTelefonnr = /^\d+$/.test(telefonNr);
     if (!resultTelefonnr) {
         visError("errorTelefonnr", "Ikke tastet inn gyldig telefonnummer (kun tall)");
         error = true;
+    }else {
+        $("#errorTelefonnr").html("");
     }
 
     const resultEpost = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(epost);
     if (epost === "" || !resultEpost) {
         visError("errorEpost", "Ikke tastet inn gyldig epostadresse");
         error = true;
+    }else {
+        $("#errorEpost").html("");
     }
 
     if (error){
@@ -65,19 +76,12 @@ function kjopBillett(){
 
 
 
-    $("#film").html("");
-    $("#antallBilleter").html("");
-    $("#fornavn").html("");
-    $("#etternavn").html("");
-    $("#telefonnr").html("");
-    $("#epost").html("");
-
-    $("#errorAntall").html("");
-    $("#errorFilm").html("");
-    $("#errorFornavn").html("");
-    $("#errorEtternavn").html("");
-    $("#errorTelefonnr").html("");
-    $("#errorEpost").html("");
+    $("#film").val("");
+    $("#antallBilleter").val("");
+    $("#fornavn").val("");
+    $("#etternavn").val("");
+    $("#telefonnr").val("");
+    $("#epost").val("");
 }
 
 function hentBilletter(){
