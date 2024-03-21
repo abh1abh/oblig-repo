@@ -1,7 +1,6 @@
 function visError(id, message) {
     $("#" + id).html(message).css("color", "red");
 }
-
 function kjopBillett(){
     const film = $("#film").val();
     let antall = $("#antallBilleter").val();
@@ -11,7 +10,8 @@ function kjopBillett(){
     const epost = $("#epost").val();
 
     let error = false;
-    if(film === ""){
+
+    if(film === "" || film===null ){
         visError("errorFilm", "Ikke valgt film")
         error = true;
     }else {
@@ -70,13 +70,13 @@ function kjopBillett(){
         epost: epost
     };
 
+    console.log(nyBillet)
+
     $.post("http://localhost:8080/PostTickets", nyBillet, function (){
         hentBilletter();
     })
 
-
-
-    $("#film").val("");
+    //$("#film").val("");
     $("#antallBilleter").val("");
     $("#fornavn").val("");
     $("#etternavn").val("");
@@ -87,6 +87,7 @@ function kjopBillett(){
 function hentBilletter(){
     $.get("/GetTickets", function (data){
         formaterData(data)
+
     })
 }
 
