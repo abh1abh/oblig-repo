@@ -1,6 +1,5 @@
 package com.example.obligapplicationfinal;
 
-import com.fasterxml.jackson.databind.BeanProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
