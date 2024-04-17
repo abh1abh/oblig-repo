@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>Oblig</title>
+  <script src="scripts.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="col-md-2">
+  <h1>Bestilling av kinobilletter</h1>
+  <br>
+  <form class="form">
+    <div class="form-group">
+      <label>Velg film: </label>
+      <select class="form-control" id="film">
+        <option disabled selected>Velg film her</option>
+        <option name="filmer" value="Dune Part: 2">Dune Part: 2</option>
+        <option name="filmer" value="Poor Things">Poor Things</option>
+        <option name="filmer" value="Tenet">Tenet</option>
+        <option name="filmer" value="Oppenheimer">Oppenheimer</option>
+      </select>
+      <span id="errorFilm" class="error-message"></span>
+    </div>
+    <div class="form-group">
+      <label>Antall</label>
+      <input id="antallBilleter" type="number" class="form-control"><span id="errorAntall"></span>
+    </div>
+    <div class="form-group">
+      <label>Fornavn</label>
+      <input id="fornavn" type="text" class="form-control"><span id="errorFornavn"></span>
+    </div>
+    <div class="form-group">
+      <label>Etternavn</label>
+      <input id="etternavn" type="text" class="form-control"><span id="errorEtternavn"></span>
+    </div>
+    <div class="form-group">
+      <label>Telefonnr</label>
+      <input id="telefonnr" type="text" class="form-control"><span id="errorTelefonnr"></span>
+    </div>
+    <div class="form-group">
+      <label>Epost</label>
+      <input id="epost" type="text" class="form-control"><span id="errorEpost"></span>
+    </div>
+  </form>
+  <button class="btn btn-primary" onclick="kjopBillett()">Kjøp billet</button>
+  <br/>
+  <br/>
+  <h2>Alle billetter</h2>
+  <div class="table" id="output"></div>
+  <button class="btn btn-danger" onclick="slettKinobillettListe()">Slett alle billetter</button>
+</div>
+</body>
+</html>
