@@ -4,8 +4,8 @@ function visError(id, message) {
 function kjopBillett(){
     const film = $("#film").val();
     let antall = $("#antallBilleter").val();
-    const fornavn = $("#fornavn").val();
-    const etternavn = $("#etternavn").val();
+    let fornavn = $("#fornavn").val();
+    let etternavn = $("#etternavn").val();
     const telefonNr = $("#telefonnr").val();
     const epost = $("#epost").val();
 
@@ -61,6 +61,12 @@ function kjopBillett(){
         return;
     }
 
+    function capitalizeFirstLetter(string) { // Got function from: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+        return string[0].toUpperCase() + string.slice(1);
+    }
+    fornavn = capitalizeFirstLetter(fornavn);
+    etternavn =capitalizeFirstLetter(etternavn)
+
     const nyBillet = {
         film: film,
         antall: antall,
@@ -78,12 +84,12 @@ function kjopBillett(){
         }
     })
 
-    $("#film").val("");
-    $("#antallBilleter").val("");
-    $("#fornavn").val("");
-    $("#etternavn").val("");
-    $("#telefonnr").val("");
-    $("#epost").val("");
+    // $("#film").val("");
+    // $("#antallBilleter").val("");
+    // $("#fornavn").val("");
+    // $("#etternavn").val("");
+    // $("#telefonnr").val("");
+    // $("#epost").val("");
 }
 
 function hentBilletter(){

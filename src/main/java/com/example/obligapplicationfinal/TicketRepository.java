@@ -15,7 +15,7 @@ public class TicketRepository {
     private JdbcTemplate db;
 
     public boolean saveTicket(Ticket ticketIn){
-        String sql = "INSERT INTO Tickets ( ab, film, antall, " +
+        String sql = "INSERT INTO Tickets (film, antall, " +
                 "fornavn, etternavn, telefonNr, epost) VALUES (?,?,?,?,?,?)";
         try{
             db.update(sql, ticketIn.getFilm(), ticketIn.getAntall(),
