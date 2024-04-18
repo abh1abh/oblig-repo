@@ -38,7 +38,7 @@ public class TicketController {
         return allTickets;
     }
 
-    @GetMapping("/DeleteAll")
+    @GetMapping("/DeleteAll") //Add DeleteMapping
     public boolean deleteAll(){
         return rep.deleteAll();
     }
