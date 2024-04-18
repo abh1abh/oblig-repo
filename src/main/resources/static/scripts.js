@@ -117,7 +117,7 @@ function formaterData(billeter){
     $("#output").html(ut);
 }
 
-function slettKinobillettListe(){
+function slettKinobillettListe(){ //add ajax DELETE 
     $.get("/DeleteAll", function (data){
         if (!data){
             alert("Ops! Får ikke slettet billetter")
