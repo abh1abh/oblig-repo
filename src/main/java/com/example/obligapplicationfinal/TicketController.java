@@ -1,8 +1,6 @@
 package com.example.obligapplicationfinal;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,9 +36,16 @@ public class TicketController {
         return allTickets;
     }
 
-    @GetMapping("/DeleteAll")
+    @DeleteMapping("/DeleteAll")
     public boolean deleteAll(){
         return rep.deleteAll();
+    }
+
+    @DeleteMapping("/DeleteById")
+    public boolean deleteById(@RequestParam int ticketId){
+        System.out.println("deleteById: " + ticketId);
+        return rep.deleteById(ticketId);
+
     }
 
 }

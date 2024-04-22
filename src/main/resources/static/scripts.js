@@ -84,12 +84,12 @@ function kjopBillett(){
         }
     })
 
-    // $("#film").val("");
-    // $("#antallBilleter").val("");
-    // $("#fornavn").val("");
-    // $("#etternavn").val("");
-    // $("#telefonnr").val("");
-    // $("#epost").val("");
+    $("#film").val("");
+    $("#antallBilleter").val("");
+    $("#fornavn").val("");
+    $("#etternavn").val("");
+    $("#telefonnr").val("");
+    $("#epost").val("");
 }
 
 function hentBilletter(){
@@ -97,7 +97,8 @@ function hentBilletter(){
         if(data.length > 0){
             formaterData(data)
         } else{
-            alert("Ops! Feil med billett hentingen")
+            console.log("Ops! Ingen billeter å hente")
+            $("#output").html("")
         }
     })
 }
@@ -111,18 +112,36 @@ function formaterData(billeter){
             "<td>" + billet.fornavn + " " + billet.etternavn + "</td>" +
             "<td>" + billet.telefonNr + "</td>" +
             "<td>" + billet.epost + "</td>" +
+            "<td><button class=\"btn btn-danger\" onclick='deleteById(" + billet.ticketId + ")'> Slett </button></td>" +
             "</tr>";
     }
     ut += "</table>";
     $("#output").html(ut);
 }
 
+function deleteById(ticketId){
+    $.ajax({
+        url:`/DeleteById?ticketId=${ticketId}`,
+        type: 'DELETE',
+        success: function (data) {
+            if (!data) {
+                console.log("Ops! Får ikke slettet billetten")
+            } else {
+                hentBilletter();
+            }
+        }
+    })
+}
 function slettKinobillettListe(){
-    $.get("/DeleteAll", function (data){
-        if (!data){
-            alert("Ops! Får ikke slettet billetter")
-        }else{
-            $("#output").html("");
+    $.ajax({
+        url: "/DeleteAll",
+        type: 'DELETE',
+        success: function (data) {
+            if (!data) {
+                console.log("Ops! Får ikke slettet alle billetter")
+            } else {
+                $("#output").html("");
+            }
         }
     })
 
