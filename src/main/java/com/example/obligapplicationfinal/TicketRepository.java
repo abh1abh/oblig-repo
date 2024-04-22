@@ -50,4 +50,15 @@ public class TicketRepository {
         }
     }
 
+    public boolean deleteById(int ticketId){
+        try{
+            String sql = "DELETE FROM Tickets WHERE ticketId = ?";
+            db.update(sql, ticketId);
+            return true;
+        } catch(Exception e){
+            System.out.println("Error deleting from db");
+            return false;
+        }
+    }
+
 }

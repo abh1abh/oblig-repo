@@ -5,6 +5,5 @@ CREATE TABLE Tickets (
      fornavn VARCHAR(50) NOT NULL,
      etternavn VARCHAR(50) NOT NULL,
      telefonNr VARCHAR(50),
-     epost VARCHAR(50),
-     test varchar(10)
+     epost VARCHAR(50)
 );

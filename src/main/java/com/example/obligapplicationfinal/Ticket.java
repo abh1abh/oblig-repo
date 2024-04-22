@@ -13,6 +13,7 @@ public class Ticket {
 
     }
 
+
     public Ticket(String film, int antall, String fornavn, String etternavn, String telefonNr, String epost) {
         this.film = film;
         this.antall = antall;
@@ -20,6 +21,14 @@ public class Ticket {
         this.etternavn = etternavn;
         this.telefonNr = telefonNr;
         this.epost = epost;
+    }
+
+    public int getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(int ticketId) {
+        this.ticketId = ticketId;
     }
 
     public String getFilm() {
